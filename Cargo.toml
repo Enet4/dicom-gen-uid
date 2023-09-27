@@ -1,0 +1,12 @@
+[package]
+name = "dicom-gen-uid"
+version = "0.1.0"
+edition = "2021"
+authors = ["Eduardo Pinho <enet4mikeenet@gmail.com>"]
+description = "A library and command-line utility to generate DICOM UIDs"
+license = "MIT OR Apache-2.0"
+categories = ["command-line-utilities"]
+keywords = ["dicom", "uid"]
+
+[dependencies]
+uuid = { version = "1.2.2", features = [ "v4" ] }
