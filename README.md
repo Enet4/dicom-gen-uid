@@ -27,6 +27,15 @@ Please see the [documentation](https://docs.rs/dicom-gen-uid) for more details.
 let uid: String = dicom_gen_uid::gen_uid();
 ```
 
+For the library to work in WebAssembly,
+add `getrandom` with the feature `js`.
+
+```toml
+[dependencies.getrandom]
+version = "0.2"
+features = ["js"]
+```
+
 ## See also
 
 [DICOM-rs], a DICOM implementation for the next generation of medical imaging systems.
