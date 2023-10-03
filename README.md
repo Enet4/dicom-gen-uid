@@ -1,7 +1,7 @@
 # DICOM UID generator
 
 [![DICOM-rs on crates.io](https://img.shields.io/crates/v/dicom-gen-uid.svg)](https://crates.io/crates/dicom-gen-uid)
-[![continuous integration](https://github.com/Enet4/dicom-gen-uid/actions/workflows/rust.yml/badge.svg)](https://github.com/Enet4/dicom-gen-uid/actions/workflows/ci.yml)
+[![continuous integration](https://github.com/Enet4/dicom-gen-uid/actions/workflows/ci.yml/badge.svg)](https://github.com/Enet4/dicom-gen-uid/actions/workflows/ci.yml)
 ![Minimum Rust Version Stable](https://img.shields.io/badge/Minimum%20Rust%20Version-stable-green.svg)
 [![Documentation](https://docs.rs/dicom-gen-uid/badge.svg)](https://docs.rs/dicom-gen-uid)
 
