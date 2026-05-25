@@ -29,20 +29,20 @@ pub fn gen_uid_to(to: impl Write) -> Result<(), std::io::Error> {
 /// Create a DICOM UID derived from the given UUID
 #[inline]
 pub fn new_uid(uuid: Uuid) -> String {
-    format!("2.25.{}", uuid.to_u128_le())
+    format!("2.25.{}", uuid.as_u128())
 }
 
 /// Generate a UUID derived DICOM
 /// and print it to the given writer.
 #[inline]
 pub fn new_uid_to(uuid: Uuid, mut to: impl Write) -> Result<(), std::io::Error> {
-    write!(to, "2.25.{}", uuid.to_u128_le())
+    write!(to, "2.25.{}", uuid.as_u128())
 }
 
 #[cfg(test)]
 mod tests {
     use crate::*;
-    use uuid::Uuid;
+    use uuid::{Uuid, Variant};
 
     #[test]
     fn base_test() {
@@ -133,5 +133,20 @@ mod tests {
 
         gen_uid_to(&mut out).unwrap();
         assert!(out.len() > len);
+    }
+
+    /// Reverse-interpreting a generated UID
+    /// should resolve to the the right UUID version and variant.
+    #[test]
+    fn test_reinterpret_as_uuid() {
+        let uid = gen_uid();
+        assert!(uid.starts_with("2.25."));
+        let uid_num: u128 = uid[5..].parse().expect("should be parseable as a u128");
+        // turn it back into a UUID
+        let uuid = uuid::Uuid::from_u128(uid_num);
+        // expected version 4 UUID
+        assert_eq!(uuid.get_version(), Some(uuid::Version::Random));
+        // expected RFC 4122 variant
+        assert_eq!(uuid.get_variant(), Variant::RFC4122);
     }
 }
