@@ -28,12 +28,12 @@ let uid: String = dicom_gen_uid::gen_uid();
 ```
 
 For the library to work in WebAssembly,
-add `getrandom` with the feature `js`.
+add `getrandom` with the feature `wasm_js`.
 
 ```toml
 [dependencies.getrandom]
-version = "0.2"
-features = ["js"]
+version = "0.4"
+features = ["wasm_js"]
 ```
 
 ## See also
