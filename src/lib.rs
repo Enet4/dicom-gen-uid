@@ -1,11 +1,11 @@
 //! # DICOM UID generator
-//! 
+//!
 //! Designed for the simple need of wanting a DICOM unique identifier.
-//! 
-//! All UIDs are produced according to [DICOM PS3.5 2023d Annex B.2][1],
+//!
+//! All UIDs are produced according to [DICOM PS3.5 2026a Annex B.2][1],
 //! creating UUID derived UIDs.
-//! 
-//! [1]: https://dicom.nema.org/medical/dicom/2023c/output/chtml/part05/sect_B.2.html
+//!
+//! [1]: https://dicom.nema.org/medical/dicom/2026a/output/chtml/part05/sect_B.2.html
 use std::io::Write;
 
 pub use uuid;
